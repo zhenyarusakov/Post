@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <RootNamespace>PostWeb.Infrastructure</RootNamespace>
+        <AssemblyName>PostWeb.Infrastructure</AssemblyName>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="AutoMapper" Version="11.0.0" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.16" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.16" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\PostWeb.Core\PostWeb.Core.csproj" />
+    </ItemGroup>
+
+</Project>

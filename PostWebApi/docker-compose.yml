@@ -1,0 +1,9 @@
+services:
+  postweb.api:
+    image: ${DOCKER_REGISTRY-}postwebapi
+      
+  db:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+
+volumes:
+  mssqldata:
