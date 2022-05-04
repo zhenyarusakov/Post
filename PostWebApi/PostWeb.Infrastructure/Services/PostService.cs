@@ -37,7 +37,14 @@ namespace PostWeb.Infrastructure.Services
 
         public async Task<PostDto[]> GetAllPostsAsync(CancellationToken token = default)
         {
-            var posts = await _context.Posts.Reverse().ToArrayAsync(token);
+            var posts = await _context.Posts.ToArrayAsync(token);
+
+            return _mapper.Map<PostDto[]>(posts);
+        }
+
+        public async Task<PostDto[]> GetFirstFivePostsAsync(CancellationToken token = default)
+        {
+            var posts = await _context.Posts.Take(5).ToArrayAsync(token);
 
             return _mapper.Map<PostDto[]>(posts);
         }

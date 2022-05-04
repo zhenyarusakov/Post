@@ -19,15 +19,15 @@
 <body data-new-gr-c-s-check-loaded="14.1055.0" data-gr-ext-installed="">
 <div class="sidebar-wrapper">
   <div class="header">
-    <a href="./Home.html" class="site-name">Milton</a>
+    <a [routerLink]="['/']" class="site-name">Milton</a>
     <div class="grey-rule w-hidden-small w-hidden-tiny"></div>
     <p class="site-description">Denali is a simple responsive blog template. Easily add new posts using the
       Editor or change layout and design using the Designer.</p>
     <div class="grey-rule w-hidden-small w-hidden-tiny"></div>
     <nav class="navigation">
-      <a href="./Home.html" class="nav-link">home</a>
-      <a href="./About.html" class="nav-link w--current">about</a>
-      <a href="./Contact.html" class="nav-link">contact</a>
+      <a routerLinkActive="w--current" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/']" class="nav-link">home</a>
+      <a routerLinkActive="w--current" [routerLink]="['/about']" class="nav-link">about</a>
+      <a routerLinkActive="w--current" [routerLink]="['/contact']" class="nav-link">contact</a>
       <div class="grey-rule w-hidden-small w-hidden-tiny"></div>
     </nav>
     <div class="social-link-group">
@@ -41,13 +41,14 @@
 </div>
 <div class="content-wrapper">
 
+  <router-outlet></router-outlet>
 
 <!--  <app-about></app-about>-->
 <!--  <app-all-posts></app-all-posts>-->
 <!--  <app-blog-item></app-blog-item>-->
 <!--  <app-categories></app-categories>-->
 <!--  <app-contact></app-contact>-->
-  <app-home></app-home>
+<!--  <app-home></app-home>-->
 
 
 </div>

@@ -25,10 +25,18 @@ namespace PostWeb.Api.Controllers
             return Ok(result);
         }
 
-        [HttpGet]
+        [HttpGet("Get All Posts")]
         public async Task<IActionResult> GetAllPostsAsync(CancellationToken token = default)
         {
             var result = await _service.GetAllPostsAsync(token);
+
+            return Ok(result);
+        }
+        
+        [HttpGet("Get First Five Posts")]
+        public async Task<IActionResult> GetFirstFivePostsAsync(CancellationToken token = default)
+        {
+            var result = await _service.GetFirstFivePostsAsync(token);
 
             return Ok(result);
         }

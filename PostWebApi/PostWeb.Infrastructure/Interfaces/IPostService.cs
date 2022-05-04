@@ -10,6 +10,7 @@ namespace PostWeb.Infrastructure.Interfaces
         Task<int> UpdatePostAsync(PostUpdate update, CancellationToken token = default);
         Task<PostDto> GetByIdPostAsync(int id, CancellationToken token = default);
         Task<PostDto[]> GetAllPostsAsync(CancellationToken token = default);
+        Task<PostDto[]> GetFirstFivePostsAsync(CancellationToken token = default);
         Task DeletePostAsync(int id, CancellationToken token = default);
     }
 }
