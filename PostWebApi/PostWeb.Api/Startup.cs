@@ -26,6 +26,7 @@ namespace PostWeb.Api
             services.AddSwagger();
             services.AddDbContext(Configuration);
             services.AutoMapper();
+            services.AddCors();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -37,6 +38,8 @@ namespace PostWeb.Api
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "PostWeb.Api v1"));
             }
 
+            app.UseCors(builder =>builder.AllowAnyOrigin());
+            
             app.UseHttpsRedirection();
 
             app.UseRouting();

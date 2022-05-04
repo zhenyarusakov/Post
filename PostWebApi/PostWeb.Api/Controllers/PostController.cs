@@ -25,7 +25,7 @@ namespace PostWeb.Api.Controllers
             return Ok(result);
         }
 
-        [HttpGet("Get All Posts")]
+        [HttpGet("GetAllPosts")]
         public async Task<IActionResult> GetAllPostsAsync(CancellationToken token = default)
         {
             var result = await _service.GetAllPostsAsync(token);
@@ -33,7 +33,7 @@ namespace PostWeb.Api.Controllers
             return Ok(result);
         }
         
-        [HttpGet("Get First Five Posts")]
+        [HttpGet("GetFirstFivePosts")]
         public async Task<IActionResult> GetFirstFivePostsAsync(CancellationToken token = default)
         {
             var result = await _service.GetFirstFivePostsAsync(token);

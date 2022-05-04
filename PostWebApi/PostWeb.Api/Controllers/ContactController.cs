@@ -1,7 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using PostWeb.Core;
 using PostWeb.Core.DTO.ContactDto;
 using PostWeb.Infrastructure.Interfaces;
 

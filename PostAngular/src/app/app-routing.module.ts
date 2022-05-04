@@ -14,6 +14,9 @@ const routes: Routes = [
   {path: 'blog-item', component: BlogItemComponent},
   {path: 'categories', component: CategoriesComponent},
   {path: 'contact', component: ContactComponent},
+  {path: 'all-posts/:id', component: BlogItemComponent},
+  {path: ':id', component: BlogItemComponent},
+
 ];
 
 @NgModule({

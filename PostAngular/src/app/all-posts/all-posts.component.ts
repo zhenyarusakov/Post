@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
+import {PostService} from "../services/post.service";
+import {Post} from "../data/Post";
 
 @Component({
   selector: 'app-all-posts',
@@ -8,12 +10,25 @@ import {Router} from "@angular/router";
 })
 export class AllPostsComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  public posts: Post[] = []
+
+  constructor(private router: Router, private service: PostService) {
+    this.getPosts()
+  }
 
   ngOnInit(): void {
+
   }
 
-  gotToAllPosts() {
+  getPosts() {
+    this.service.getAllPosts()
+      .subscribe(data => {
+        this.posts = data
+      })
+  }
+
+  goToAllPosts() {
     this.router.navigate(['/all-posts'])
   }
+
 }
