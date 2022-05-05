@@ -29,5 +29,4 @@ export class AllPostsComponent implements OnInit {
   goToAllPosts() {
     this.router.navigate(['/all-posts'])
   }
-
 }

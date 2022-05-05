@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { CreateNewPostComponent } from './create-new-post/create-new-post.component';
+import { UpdatePostComponent } from './update-post/update-post.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CreateNewPostComponent } from './create-new-post/create-new-post.compon
     CategoriesComponent,
     ContactComponent,
     HomeComponent,
-    CreateNewPostComponent
+    CreateNewPostComponent,
+    UpdatePostComponent
   ],
   imports: [
     BrowserModule,

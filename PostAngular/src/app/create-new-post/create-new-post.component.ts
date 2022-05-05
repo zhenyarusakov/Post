@@ -37,10 +37,9 @@ export class CreateNewPostComponent implements OnInit {
   submit() {
     this.service.addNewPost(this.form.value)
       .subscribe(data => {
-        data.dateTime
         this.posts.push(this.form.value)
       })
 
-    // this.form.reset()
+    this.form.reset()
   }
 }

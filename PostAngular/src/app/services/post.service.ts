@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Post} from "../data/Post";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {Params} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -33,5 +34,13 @@ export class PostService {
     }
 
     return  this.http.post<Post>(`https://localhost:5001/api/Post`, data)
+  }
+
+  updatePost(id: Params, updatePost: Post): Observable<Post>{
+    let data = {
+      id: id, img: updatePost.img, longString: updatePost.longString, shortString: updatePost.shortString, category: updatePost.category
+    }
+
+    return this.http.put<Post>(`https://localhost:5001/api/Post?id=` + id, data)
   }
 }

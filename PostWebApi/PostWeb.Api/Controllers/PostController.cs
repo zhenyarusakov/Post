@@ -51,9 +51,9 @@ namespace PostWeb.Api.Controllers
         }
         
         [HttpPut]
-        public async Task<IActionResult> UpdatePostAsync(PostUpdate update, CancellationToken token = default)
+        public async Task<IActionResult> UpdatePostAsync(int id, PostUpdate update, CancellationToken token = default)
         {
-            var result = await _service.UpdatePostAsync(update, token);
+            var result = await _service.UpdatePostAsync(id, update, token);
 
             return Ok(result);
         }

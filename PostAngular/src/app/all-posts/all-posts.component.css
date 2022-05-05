@@ -1,0 +1,12 @@
+fontButton{
+  display: inline-block;
+  border-radius: 3px;
+  background-color: #888;
+  transition: background-color 200ms ease;
+  color: #fff;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  text-decoration: none;
+  float: right;
+}

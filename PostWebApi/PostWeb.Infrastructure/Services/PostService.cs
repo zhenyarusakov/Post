@@ -71,11 +71,11 @@ namespace PostWeb.Infrastructure.Services
             return post.Id;
         }
 
-        public async Task<int> UpdatePostAsync(PostUpdate update, CancellationToken token = default)
+        public async Task<int> UpdatePostAsync(int id, PostUpdate update, CancellationToken token = default)
         {
             var updatePost = await _context.Posts
                 .AsNoTracking()
-                .SingleOrDefaultAsync(x => x.Id == update.Id, token);
+                .SingleOrDefaultAsync(x => x.Id == id, token);
 
             if (updatePost == null)
             {
