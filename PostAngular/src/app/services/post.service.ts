@@ -43,4 +43,8 @@ export class PostService {
 
     return this.http.put<Post>(`https://localhost:5001/api/Post?id=` + id, data)
   }
+
+  deletePost(id: number): Observable<Post>{
+    return this.http.delete<Post>(`https://localhost:5001/api/Post?id=` + id);
+  }
 }

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, Params, Router} from "@angular/router";
 import {PostService} from "../services/post.service";
 import {Post} from "../data/Post";
 
@@ -11,18 +11,27 @@ import {Post} from "../data/Post";
 export class AllPostsComponent implements OnInit {
 
   public posts: Post[] = []
+  public post!: Post
 
   constructor(private activateRoute: ActivatedRoute, private router: Router, private service: PostService) {
   }
 
   ngOnInit(): void {
     this.getPosts()
+    this.deletePost(this.post.id)
   }
 
   getPosts() {
     this.service.getAllPosts()
       .subscribe(data => {
         this.posts = data.reverse()
+      })
+  }
+
+  deletePost(id: number){
+    this.service.deletePost(id)
+      .subscribe(data => {
+        this.post = data
       })
   }
 

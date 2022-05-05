@@ -51,6 +51,7 @@ export class UpdatePostComponent implements OnInit {
   }
 
   update() {
+    console.log('qqqqqqqqqqqqq')
     this.service.updatePost(this.params['id'], this.form.value)
       .subscribe(data => {
         this.post = data
