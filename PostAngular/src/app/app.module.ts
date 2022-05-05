@@ -11,6 +11,7 @@ import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { CreateNewPostComponent } from './create-new-post/create-new-post.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {HttpClientModule} from "@angular/common/http";
     BlogItemComponent,
     CategoriesComponent,
     ContactComponent,
-    HomeComponent
+    HomeComponent,
+    CreateNewPostComponent
   ],
   imports: [
     BrowserModule,

@@ -13,16 +13,16 @@ export class HomeComponent implements OnInit {
   posts: Post[] = []
 
   constructor(private router: Router, private service: PostService) {
-    this.getFirstFivePosts()
   }
 
   ngOnInit(): void {
+    this.getFirstFivePosts()
   }
 
   getFirstFivePosts() {
     this.service.getFirstFivePosts()
       .subscribe(data => {
-        this.posts = data
+        this.posts = data.reverse()
       })
   }
 

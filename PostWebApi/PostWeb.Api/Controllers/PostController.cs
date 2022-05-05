@@ -1,6 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using PostWeb.Core.Common;
 using PostWeb.Core.DTO.PostDto;
 using PostWeb.Infrastructure.Interfaces;
 
@@ -17,7 +18,7 @@ namespace PostWeb.Api.Controllers
             _service = service;
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public async Task<IActionResult> GetByIdPostAsync(int id, CancellationToken token = default)
         {
             var result = await _service.GetByIdPostAsync(id, token);
@@ -25,10 +26,10 @@ namespace PostWeb.Api.Controllers
             return Ok(result);
         }
 
-        [HttpGet("GetAllPosts")]
-        public async Task<IActionResult> GetAllPostsAsync(CancellationToken token = default)
+        [HttpGet]
+        public async Task<IActionResult> GetAllPostsAsync([FromQuery] PostFilter filter, CancellationToken token)
         {
-            var result = await _service.GetAllPostsAsync(token);
+            var result = await _service.GetAllPostsAsync(filter, token);
 
             return Ok(result);
         }

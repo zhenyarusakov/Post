@@ -6,6 +6,7 @@ import {AllPostsComponent} from "./all-posts/all-posts.component";
 import {BlogItemComponent} from "./blog-item/blog-item.component";
 import {CategoriesComponent} from "./categories/categories.component";
 import {ContactComponent} from "./contact/contact.component";
+import {CreateNewPostComponent} from "./create-new-post/create-new-post.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'contact', component: ContactComponent},
   {path: 'all-posts/:id', component: BlogItemComponent},
   {path: ':id', component: BlogItemComponent},
+  {path: 'post', component: CreateNewPostComponent}
 
 ];
 

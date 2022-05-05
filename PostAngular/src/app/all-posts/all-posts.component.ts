@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {PostService} from "../services/post.service";
 import {Post} from "../data/Post";
 
@@ -12,18 +12,17 @@ export class AllPostsComponent implements OnInit {
 
   public posts: Post[] = []
 
-  constructor(private router: Router, private service: PostService) {
-    this.getPosts()
+  constructor(private activateRoute: ActivatedRoute, private router: Router, private service: PostService) {
   }
 
   ngOnInit(): void {
-
+    this.getPosts()
   }
 
   getPosts() {
     this.service.getAllPosts()
       .subscribe(data => {
-        this.posts = data
+        this.posts = data.reverse()
       })
   }
 

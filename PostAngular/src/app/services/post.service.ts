@@ -11,8 +11,18 @@ export class PostService {
   constructor(private http: HttpClient) {
   }
 
+  // getAllPosts(category?: string): Observable<Post[]> {
+  //   return this.http.get<Post[]>(category === null
+  //     ? `https://localhost:5001/api/Post?category=` + category
+  //     : `https://localhost:5001/api/Post`)
+  // }
+
   getAllPosts(): Observable<Post[]> {
-    return this.http.get<Post[]>(`https://localhost:5001/api/Post/GetAllPosts/`)
+    return this.http.get<Post[]>(`https://localhost:5001/api/Post`)
+  }
+
+  getCategoryPost(category: string): Observable<Post[]> {
+    return this.http.get<Post[]>(`https://localhost:5001/api/Post?Category=` + category)
   }
 
   getFirstFivePosts(): Observable<Post[]> {

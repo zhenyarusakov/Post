@@ -3,8 +3,10 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 using PostWeb.Core;
+using PostWeb.Core.Common;
 using PostWeb.Core.DTO.PostDto;
 using PostWeb.Infrastructure.Interfaces;
 
@@ -35,11 +37,18 @@ namespace PostWeb.Infrastructure.Services
             return _mapper.Map<PostDto>(post);
         }
 
-        public async Task<PostDto[]> GetAllPostsAsync(CancellationToken token = default)
+        public async Task<PostDto[]> GetAllPostsAsync(PostFilter filter, CancellationToken token = default)
         {
-            var posts = await _context.Posts.ToArrayAsync(token);
+            var query = _context.Posts.AsQueryable();
 
-            return _mapper.Map<PostDto[]>(posts);
+            if (!string.IsNullOrEmpty(filter.Category))
+            {
+                query = query.Where(x => x.Category == filter.Category);
+            }
+
+            var posts = query.ProjectTo<PostDto>(_mapper.ConfigurationProvider);
+
+            return await posts.ToArrayAsync(token);
         }
 
         public async Task<PostDto[]> GetFirstFivePostsAsync(CancellationToken token = default)

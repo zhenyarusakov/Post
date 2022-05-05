@@ -1,31 +1,32 @@
-<h1 class="white-bg-heading">Travel</h1>
+<h1 class="white-bg-heading">Categories</h1>
 <div class="w-dyn-list">
-  <div role="list" class="w-dyn-items">
+  <div role="list" class="w-dyn-items" *ngFor="let p of posts">
     <div role="listitem" class="w-dyn-item">
-      <div class="post-wrapper"
-           style="opacity: 1; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">
-        <a href="./BlogItem.htm"
-           style="background-image:url(&quot;./Images/BlogItem/5e4b1a8c95e491e2e6265a89_photo.jpg&quot;)" class="blog-image w-inline-block"></a>
-        <div class="post-content"><a
-          href="./BlogItem.htm"
-          class="blog-title-link w-inline-block">
-          <h1 class="blog-title">Coffee variety macchiato, as organic ut variety caffeine
-            americano</h1>
-        </a>
+      <div class="post-wrapper" style="opacity: 1; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">
+        <a [routerLink]="['/all-posts', p.id]"
+           style="background-image:url(&quot;{{p.img}}&quot;)"
+           class="blog-image w-inline-block"></a>
+        <div class="post-content">
+          <a [routerLink]="['/all-posts', p.id]"
+             class="blog-title-link w-inline-block">
+            <h1 class="blog-title">{{p.shortString}}</h1>
+          </a>
           <div class="post-summary-wrapper">
-            <p class="post-summary">Saucer, crema carajillo, bar, mocha medium, latte cappuccino and
-              espresso acerbic to go. Coffee, irish foam turkish coffee blue mountain seasonal.
-              Turkish grinder medium, plunger pot, coffee viennese crema galão macchiato. Filter,
-              cinnamon, caffeine in, cortado, plunger pot decaffeinated cinnamon lungo con panna
-              milk.</p><a href="./BlogItem.html" class="read-more-link">Read more...</a>
+            <p class="post-summary">{{p.longString}}</p>
+            <a [routerLink]="['/all-posts', p.id]" class="read-more-link">
+              Read more...
+            </a>
           </div>
           <div class="post-info-wrapper">
-            <div class="post-info">June 25, 2020</div>
-            <div class="post-info">|</div><a href="./Categories.html#travel" class="post-info link">Travel</a>
+            <div class="post-info">{{p.dateTime}}</div>
+            <div class="post-info">|</div>
+            <a [routerLink]="['/categories']" [queryParams]="{category: p.category}" class="post-info link">{{p.category}}</a>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<div class="button-wrapper"><button class="button w-button" (click)="goToAllPosts()">All Posts&nbsp;→</button></div>
+<div class="button-wrapper">
+  <button class="button w-button" (click)="goToAllPosts()">All Posts&nbsp;→</button>
+</div>

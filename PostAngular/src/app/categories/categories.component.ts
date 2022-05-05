@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import {ActivatedRoute, Params, Router} from "@angular/router";
+import {PostService} from "../services/post.service";
+import {Post} from "../data/Post";
 
 @Component({
   selector: 'app-categories',
@@ -8,9 +10,23 @@ import {Router} from "@angular/router";
 })
 export class CategoriesComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  public posts: Post[] = [];
+  public category!: string
+
+  constructor(private activateRoute: ActivatedRoute, private router: Router, private service: PostService) { }
 
   ngOnInit(): void {
+    this.activateRoute.queryParams.subscribe((params: Params) => {
+      this.category = params['category']
+      this.getPosts(this.category);
+    })
+  }
+
+  getPosts(category: string) {
+    this.service.getCategoryPost(category)
+      .subscribe(data => {
+        this.posts = data.reverse()
+      })
   }
 
   goToAllPosts() {
