@@ -61,6 +61,8 @@ namespace PostWeb.Infrastructure.Services
         public async Task<int> CreatePostAsync(PostCreate create, CancellationToken token = default)
         {
             Post post = _mapper.Map<Post>(create);
+            
+            post.DateTime = DateTime.Now;
 
             _context.Posts.Add(post);
 

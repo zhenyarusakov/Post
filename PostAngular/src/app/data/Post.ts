@@ -3,6 +3,6 @@ export interface Post {
   img: string,
   longString: string,
   shortString: string,
-  dateTime: string,
+  dateTime: Date
   category: string
 }
