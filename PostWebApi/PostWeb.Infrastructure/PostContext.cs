@@ -1,9 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using PostWeb.Core;
+using PostWeb.Core.IdentityModels;
 
 namespace PostWeb.Infrastructure
 {
-    public class PostContext: DbContext
+    public class PostContext: IdentityDbContext<ApplicationUser>
     {
         public PostContext(DbContextOptions options)
             : base(options){}

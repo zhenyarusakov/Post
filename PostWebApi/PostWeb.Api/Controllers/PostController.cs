@@ -7,13 +7,11 @@ using PostWeb.Infrastructure.Interfaces;
 
 namespace PostWeb.Api.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class PostController: Controller
+    public class PostApiController: BaseApiController
     {
         private readonly IPostService _service;
 
-        public PostController(IPostService service)
+        public PostApiController(IPostService service)
         {
             _service = service;
         }

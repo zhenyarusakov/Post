@@ -5,7 +5,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PostWeb.Api.Extensions;
 using PostWeb.Infrastructure.Interfaces;
+using PostWeb.Infrastructure.Interfaces.IdentityInterfaces;
 using PostWeb.Infrastructure.Services;
+using PostWeb.Infrastructure.Services.IdentityServices;
 
 namespace PostWeb.Api
 {
@@ -20,6 +22,9 @@ namespace PostWeb.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddIdentity();
+            services.AddAuthenticationOptions(Configuration);
+            services.AddScoped<IAuthenticateService, AuthenticateService>();
             services.AddScoped<IPostService, PostService>();
             services.AddScoped<IContactService, ContactService>();
             services.AddControllers();

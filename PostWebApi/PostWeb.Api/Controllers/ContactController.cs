@@ -6,13 +6,11 @@ using PostWeb.Infrastructure.Interfaces;
 
 namespace PostWeb.Api.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class ContactController: Controller
+    public class ContactApiController: BaseApiController
     {
         private readonly IContactService _service;
 
-        public ContactController(IContactService service)
+        public ContactApiController(IContactService service)
         {
             _service = service;
         }
@@ -32,7 +30,7 @@ namespace PostWeb.Api.Controllers
 
             return Ok(result);
         }
-
+        
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetContactById(int id, CancellationToken token = default)
         {
