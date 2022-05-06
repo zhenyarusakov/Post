@@ -3,28 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AboutComponent } from './about/about.component';
-import { AllPostsComponent } from './all-posts/all-posts.component';
-import { BlogItemComponent } from './blog-item/blog-item.component';
-import { CategoriesComponent } from './categories/categories.component';
-import { ContactComponent } from './contact/contact.component';
-import { HomeComponent } from './home/home.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
-import { CreateNewPostComponent } from './create-new-post/create-new-post.component';
-import { UpdatePostComponent } from './update-post/update-post.component';
+import {ContactModule} from "./contact/contact/contact.module";
+import {PostModule} from "./post/post/post.module";
 
 @NgModule({
   declarations: [
-    AppComponent,
-    AboutComponent,
-    AllPostsComponent,
-    BlogItemComponent,
-    CategoriesComponent,
-    ContactComponent,
-    HomeComponent,
-    CreateNewPostComponent,
-    UpdatePostComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +18,8 @@ import { UpdatePostComponent } from './update-post/update-post.component';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    PostModule,
+    ContactModule
   ],
   providers: [],
   bootstrap: [AppComponent]

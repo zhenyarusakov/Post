@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Params, Router} from "@angular/router";
-import {PostService} from "../services/post.service";
-import {Post} from "../data/Post";
+import {ActivatedRoute, Router} from "@angular/router";
+import {PostService} from "../../services/post.service";
+import {Post} from "../../data/Post";
 
 @Component({
   selector: 'app-all-posts',
@@ -32,6 +32,7 @@ export class AllPostsComponent implements OnInit {
     this.service.deletePost(id)
       .subscribe(data => {
         this.post = data
+        this.getPosts()
       })
   }
 

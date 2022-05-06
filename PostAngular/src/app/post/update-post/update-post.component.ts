@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {PostService} from "../services/post.service";
+import {PostService} from "../../services/post.service";
 import {ActivatedRoute, Params} from "@angular/router";
-import {Post} from "../data/Post";
+import {Post} from "../../data/Post";
 
 @Component({
   selector: 'app-update-post',
@@ -51,7 +51,6 @@ export class UpdatePostComponent implements OnInit {
   }
 
   update() {
-    console.log('qqqqqqqqqqqqq')
     this.service.updatePost(this.params['id'], this.form.value)
       .subscribe(data => {
         this.post = data
