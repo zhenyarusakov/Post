@@ -1,1 +1,25 @@
-<p>get-all-create-contact works!</p>
+﻿<div class="p-2">
+  <table class="table table-sm">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Message</th>
+      <th colspan="2"></th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let c of contacts">
+    <tr>
+      <td>{{c.name}}</td>
+      <td>{{c.email}}</td>
+      <td class="text">{{c.message}}</td>
+      <td>
+        <button (click)="processed(c.id)">Processed</button>
+      </td>
+      <td>
+        <button (click)="delete(c.id)">Delete message</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

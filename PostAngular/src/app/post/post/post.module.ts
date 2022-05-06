@@ -4,7 +4,6 @@ import {AboutComponent} from "../about/about.component";
 import {AllPostsComponent} from "../all-posts/all-posts.component";
 import {BlogItemComponent} from "../blog-item/blog-item.component";
 import {CategoriesComponent} from "../categories/categories.component";
-import {ContactComponent} from "../contact/contact.component";
 import {HomeComponent} from "../home/home.component";
 import {CreateNewPostComponent} from "../create-new-post/create-new-post.component";
 import {UpdatePostComponent} from "../update-post/update-post.component";
@@ -21,7 +20,6 @@ import {AppRoutingModule} from "../../app-routing.module";
     AllPostsComponent,
     BlogItemComponent,
     CategoriesComponent,
-    ContactComponent,
     HomeComponent,
     CreateNewPostComponent,
     UpdatePostComponent,

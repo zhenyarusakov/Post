@@ -24,7 +24,7 @@ namespace PostWeb.Infrastructure.Services
         public async Task<int> CreateContactAsync(ContactCreate create, CancellationToken token = default)
         {
             var contact = _mapper.Map<Contact>(create);
-            
+
             _context.Contacts.Add(contact);
 
             await _context.SaveChangesAsync(token);

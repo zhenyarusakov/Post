@@ -14,6 +14,6 @@ export class AboutComponent implements OnInit {
   }
 
   goToContact() {
-    this.router.navigate(['/contact'])
+    this.router.navigate(['/create-contact'])
   }
 }

@@ -1,1 +1,31 @@
-<p>create-contact works!</p>
+<div class="post-wrapper"
+     style="opacity: 1;
+     transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+     transform-style: preserve-3d;">
+  <div class="post-content">
+    <div class="body-copy w-richtext">
+      <div class="form-wrapper w-form">
+        <form [formGroup]="form" (ngSubmit)="submit()">
+          <h1>Create New Contact</h1>
+          <div>
+            <label>Name</label>
+            <input type="text" placeholder="name" class="text-field w-input" formControlName="name">
+          </div>
+
+          <div>
+            <label>Email</label>
+            <input type="text" placeholder="email" class="text-field w-input" formControlName="email">
+          </div>
+
+          <div>
+            <label>Message</label>
+            <textarea type="text" placeholder="message"  formControlName="message"
+                      class="text-field w-input" style="height: 150px"></textarea>
+          </div>
+
+          <button type="submit" class="button w-button" [disabled]="form.invalid">Send</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
