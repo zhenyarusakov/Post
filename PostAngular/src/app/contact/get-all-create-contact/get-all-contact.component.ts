@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ContactService} from "../../services/contact.service";
 import {Contact} from "../../data/Contact";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-get-all-create-contact',
@@ -12,7 +13,7 @@ export class GetAllContactComponent implements OnInit {
   public contacts: Contact[] = []
   public contact!: Contact
 
-  constructor(private service: ContactService) { }
+  constructor(private router: Router,private service: ContactService) { }
 
   ngOnInit(): void {
     this.getContact()

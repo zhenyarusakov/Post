@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Contact} from "../data/Contact";
 import {Observable} from "rxjs";
+import {Post} from "../data/Post";
 
 @Injectable({
   providedIn: 'root'
@@ -32,5 +33,9 @@ export class ContactService {
 
   deleteContact(id: number): Observable<Contact>{
     return this.http.delete<Contact>(`https://localhost:5001/api/Contact?id=` + id)
+  }
+
+  getContactById(id: number): Observable<Contact>{
+    return  this.http.get<Contact>(`https://localhost:5001/api/Contact/` + id)
   }
 }

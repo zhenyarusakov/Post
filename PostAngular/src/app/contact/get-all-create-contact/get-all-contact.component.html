@@ -10,9 +10,9 @@
     </thead>
     <tbody *ngFor="let c of contacts">
     <tr>
-      <td>{{c.name}}</td>
-      <td>{{c.email}}</td>
-      <td class="text">{{c.message}}</td>
+      <td [routerLink]="['/contact-item', c.id]">{{c.name}}</td>
+      <td  [routerLink]="['/contact-item', c.id]">{{c.email}}</td>
+      <td  [routerLink]="['/contact-item', c.id]" class="text">{{c.message}}</td>
       <td>
         <button (click)="processed(c.id)">Processed</button>
       </td>

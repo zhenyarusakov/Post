@@ -9,6 +9,7 @@ import {CreateNewPostComponent} from "./post/create-new-post/create-new-post.com
 import {UpdatePostComponent} from "./post/update-post/update-post.component";
 import {GetAllContactComponent} from "./contact/get-all-create-contact/get-all-contact.component";
 import {CreateContactComponent} from "./contact/create-contact/create-contact.component";
+import {ContactItemComponent} from "./contact/contact-item/contact-item.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'create-contact', component: CreateContactComponent},
 
   {path: 'all-posts/:id', component: BlogItemComponent},
+  {path: 'contact-item/:id', component: ContactItemComponent},
   {path: ':id', component: BlogItemComponent},
   {path: 'update-post/:id', component: UpdatePostComponent}
 

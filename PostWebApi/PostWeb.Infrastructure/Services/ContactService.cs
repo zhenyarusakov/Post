@@ -21,6 +21,20 @@ namespace PostWeb.Infrastructure.Services
             _mapper = mapper;
         }
 
+        public async Task<ContactDto> GetContactById(int id, CancellationToken token = default)
+        {
+            var contact = await _context.Contacts
+                .AsNoTracking()
+                .SingleOrDefaultAsync(x => x.Id == id, token);
+
+            if (contact == null)
+            {
+                throw new ArgumentNullException("Post not found");
+            }
+            
+            return _mapper.Map<ContactDto>(contact);
+        }
+
         public async Task<int> CreateContactAsync(ContactCreate create, CancellationToken token = default)
         {
             var contact = _mapper.Map<Contact>(create);

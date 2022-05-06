@@ -6,13 +6,15 @@ import {BrowserModule} from "@angular/platform-browser";
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AppRoutingModule} from "../../app-routing.module";
+import {ContactItemComponent} from "../contact-item/contact-item.component";
 
 
 
 @NgModule({
   declarations: [
     CreateContactComponent,
-    GetAllContactComponent
+    GetAllContactComponent,
+    ContactItemComponent
   ],
   imports: [
     BrowserModule,

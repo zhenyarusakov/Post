@@ -33,6 +33,14 @@ namespace PostWeb.Api.Controllers
             return Ok(result);
         }
 
+        [HttpGet("{id:int}")]
+        public async Task<IActionResult> GetContactById(int id, CancellationToken token = default)
+        {
+            var result = await _service.GetContactById(id, token);
+
+            return Ok(result);
+        }
+
         [HttpPatch]
         public async Task<IActionResult> ProcessedContactAsync(int id, CancellationToken token = default)
         {
