@@ -1,5 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PostWeb.Core.Common;
 using PostWeb.Core.DTO.PostDto;
@@ -16,6 +17,7 @@ namespace PostWeb.Api.Controllers
             _service = service;
         }
 
+        // [Authorize(Roles = "User")]
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetByIdPostAsync(int id, CancellationToken token = default)
         {
@@ -23,7 +25,8 @@ namespace PostWeb.Api.Controllers
 
             return Ok(result);
         }
-
+        
+        // [Authorize(Roles = "Administrator")]
         [HttpGet]
         public async Task<IActionResult> GetAllPostsAsync([FromQuery] PostFilter filter, CancellationToken token)
         {

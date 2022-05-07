@@ -22,7 +22,7 @@ namespace PostWeb.Api.Controllers
         return Ok(result);
     }
     
-    [Authorize(Roles = "Administrator")]
+    // [Authorize(Roles = "Administrator")]
     [HttpPost("register-admin")]
     public async Task<IActionResult> RegisterAdmin([FromBody] RegisterModel model)
     {

@@ -60,7 +60,7 @@ namespace PostWeb.Api.Extensions
         {
             return service.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
-        
+
         public static IServiceCollection AddIdentity(this IServiceCollection services)
         {
             services.AddIdentity<ApplicationUser, IdentityRole>()

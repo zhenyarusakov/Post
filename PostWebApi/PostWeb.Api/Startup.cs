@@ -52,6 +52,8 @@ namespace PostWeb.Api
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "PostWeb.Api v1"));
             }
 
+            app.UseAuthentication();
+            app.UseAuthorization();
             app.UseCors("AllowOrigin");
             
             app.UseHttpsRedirection();

@@ -132,7 +132,8 @@ namespace PostWeb.Infrastructure.Services.IdentityServices
 
     public async Task<AuthenticationResponse> LoginAsync(LoginModel model)
     {
-        var user = await _context.Users.Include(x => x.RefreshTokens).FirstOrDefaultAsync(x => x.UserName == model.UserName);
+        var user = await _context.Users.Include(x => x.RefreshTokens)
+            .FirstOrDefaultAsync(x => x.UserName == model.UserName);
         
         if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
         {

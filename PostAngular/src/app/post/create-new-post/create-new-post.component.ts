@@ -38,6 +38,7 @@ export class CreateNewPostComponent implements OnInit {
     this.service.addNewPost(this.form.value)
       .subscribe(data => {
         this.posts.push(this.form.value)
+        console.log(data)
       })
 
     this.form.reset()

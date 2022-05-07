@@ -13,19 +13,19 @@ export class PostService {
   }
 
   getAllPosts(): Observable<Post[]> {
-    return this.http.get<Post[]>(`https://localhost:5001/api/Post`)
+    return this.http.get<Post[]>(`https://localhost:5001/api/PostApi`)
   }
 
   getCategoryPost(category: string): Observable<Post[]> {
-    return this.http.get<Post[]>(`https://localhost:5001/api/Post?Category=` + category)
+    return this.http.get<Post[]>(`https://localhost:5001/api/PostApi?Category=` + category)
   }
 
   getFirstFivePosts(): Observable<Post[]> {
-    return this.http.get<Post[]>(`https://localhost:5001/api/Post/GetFirstFivePosts`)
+    return this.http.get<Post[]>(`https://localhost:5001/api/PostApi/GetFirstFivePosts`)
   }
 
   getByIdPost(id: number): Observable<Post> {
-    return this.http.get<Post>(`https://localhost:5001/api/Post/` + id)
+    return this.http.get<Post>(`https://localhost:5001/api/PostApi/` + id)
   }
 
   addNewPost(newPost: Post): Observable<Post>{
@@ -33,7 +33,7 @@ export class PostService {
       img: newPost.img, longString: newPost.longString, shortString: newPost.shortString, category: newPost.category
     }
 
-    return  this.http.post<Post>(`https://localhost:5001/api/Post`, data)
+    return  this.http.post<Post>(`https://localhost:5001/api/PostApi`, data)
   }
 
   updatePost(id: Params, updatePost: Post): Observable<Post>{
@@ -41,10 +41,10 @@ export class PostService {
       id: id, img: updatePost.img, longString: updatePost.longString, shortString: updatePost.shortString, category: updatePost.category
     }
 
-    return this.http.put<Post>(`https://localhost:5001/api/Post?id=` + id, data)
+    return this.http.put<Post>(`https://localhost:5001/api/PostApi?id=` + id, data)
   }
 
   deletePost(id: number): Observable<Post>{
-    return this.http.delete<Post>(`https://localhost:5001/api/Post?id=` + id);
+    return this.http.delete<Post>(`https://localhost:5001/api/PostApi?id=` + id);
   }
 }

@@ -1,0 +1,28 @@
+<div style=" width: 100%; padding-top: 200px; padding-left: 300px">
+  <div class="post-wrapper"
+       style="opacity: 1;
+     transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+     transform-style: preserve-3d;">
+    <div class="post-content">
+      <div class="body-copy w-richtext">
+        <div class="form-wrapper w-form">
+          <form [formGroup]="form" (ngSubmit)="login()">
+            <h1>Login</h1>
+            <div>
+              <label>Login</label>
+              <input type="text" placeholder="name" class="text-field w-input" formControlName="userName">
+            </div>
+
+            <div>
+              <label>Password</label>
+              <input type="text" placeholder="password" class="text-field w-input" formControlName="password">
+            </div>
+
+            <button type="submit" class="button w-button" [disabled]="form.invalid">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

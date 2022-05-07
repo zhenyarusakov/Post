@@ -1,4 +1,4 @@
 ﻿namespace PostWeb.Core.IdentityModels
 {
-    public sealed record RevokeTokenRequest(string? Token);
+    public sealed record RevokeTokenRequest(string Token);
 }

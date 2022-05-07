@@ -7,6 +7,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {ContactModule} from "./contact/contact/contact.module";
 import {PostModule} from "./post/post/post.module";
+import {AuthorizationModule} from "./authorization/authorization/authorization.module";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {PostModule} from "./post/post/post.module";
     ReactiveFormsModule,
     AppRoutingModule,
     PostModule,
-    ContactModule
+    ContactModule,
+    AuthorizationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
