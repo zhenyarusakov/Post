@@ -20,6 +20,17 @@
     </div>
   </div>
 </div>
+<div style="background-color: white; width: 100%; height: 70px;">
+  <div style="float: right; margin: 15px;">
+    <div *ngIf="token === null; else logout">
+      <button class="button" style="margin-right: 10px" [routerLink]="['/login']">Login</button>
+      <button class="button" [routerLink]="['/registration']">Registration</button>
+    </div>
+    <ng-template #logout>
+      <button class="button" (click)="logOff()">Logout</button>
+    </ng-template>
+  </div>
+</div>
 <div class="content-wrapper">
 
   <router-outlet></router-outlet>

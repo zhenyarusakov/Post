@@ -18,7 +18,7 @@
             </a>
           </div>
           <div class="post-info-wrapper">
-            <div class="post-info">{{p.dateTime}}</div>
+            <div class="post-info">{{p.dateTime| date}}</div>
             <div class="post-info">|</div>
             <a [routerLink]="['/categories']" [queryParams]="{category: p.category}" class="post-info link">{{p.category}}</a>
           </div>

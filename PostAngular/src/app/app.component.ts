@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {AuthorizationService} from "./services/authorization.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'PostAngular';
+  constructor(private service: AuthorizationService, private router: Router) {
+  }
+
+  token = localStorage.getItem('accessToken')
+  
+  logOff() {
+    this.service.logout()
+    this.reloadPage()
+  }
+
+  reloadPage() {
+    setTimeout(()=>{
+
+      window.location.reload();
+    }, 50);
+    this.router.navigate(['/login'])
+  }
+
 }

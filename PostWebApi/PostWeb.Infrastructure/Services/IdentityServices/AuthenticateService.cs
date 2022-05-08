@@ -146,8 +146,10 @@ namespace PostWeb.Infrastructure.Services.IdentityServices
             var response = new AuthenticationResponse(
                 accessToken: new JwtSecurityTokenHandler().WriteToken(token),
                 refreshToken: tokenModel.Token)
+                
             {
-                RefreshTokenExpiration = tokenModel.Expires
+                RefreshTokenExpiration = tokenModel.Expires,
+                Role = _userManager.GetRolesAsync(user).Result
             };
 
             return response;

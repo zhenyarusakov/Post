@@ -1,29 +1,54 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Login} from "../data/Login";
 import {Registration} from "../data/Registration";
+import {Login} from "../data/Login";
+import {TokenResponse} from "../data/TokenResponse";
+import {tap} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthorizationService {
 
-  constructor(private http: HttpClient) { }
-
-  login(login: any): Observable<any>{
-    return this.http.post(`https://localhost:5001/api/Authenticate/login`, login)
+  constructor(private http: HttpClient) {
   }
 
-  registration(registration: any): Observable<Registration>{
-    return this.http.post<Registration>(`https://localhost:5001/api/Authenticate/register`, registration);
+  get token(): string {
+    let date = localStorage.getItem('refreshTokenExpiration')!.toString()
+
+    if( new Date().toString() > date){
+      this.logout()
+      return ''
+    }
+
+    return localStorage.getItem('accessToken')!
   }
 
-  saveToken(token: any){
-    localStorage.setItem('token', token)
+  login(login: Login): Observable<TokenResponse> {
+    return this.http.post<TokenResponse>(`https://localhost:5001/api/Authenticate/login`, login)
+      .pipe(
+        tap(this.setToken)
+      )
   }
 
-  getToken(){
-    return localStorage.getItem('token')
+  logout() {
+    this.setToken(null!)
   }
+
+  private setToken(response: TokenResponse) {
+    if(response){
+      localStorage.setItem('accessToken', response.accessToken)
+      localStorage.setItem('refreshTokenExpiration', response.refreshTokenExpiration)
+      localStorage.setItem('role', response.role)
+    }
+    else {
+      localStorage.clear()
+    }
+  }
+
+  registration(registration: Registration): Observable<Registration>{
+    return this.http.post<Registration>(`https://localhost:5001/api/Authenticate/register`, registration)
+  }
+
 }

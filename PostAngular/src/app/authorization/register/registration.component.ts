@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthorizationService} from "../../services/authorization.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-registration',
@@ -9,7 +10,7 @@ import {AuthorizationService} from "../../services/authorization.service";
 })
 export class RegistrationComponent implements OnInit {
 
-  constructor(private service: AuthorizationService) { }
+  constructor(private service: AuthorizationService, private router: Router) { }
 
   form!: FormGroup
 
@@ -34,9 +35,23 @@ export class RegistrationComponent implements OnInit {
 
   registration() {
     this.service.registration(this.form.value)
-      .subscribe(data => {
-        console.log('register', data)
+      .subscribe((data) => {
+        this.service.login(this.form.value)
+          .subscribe(() => {
+            this.form.reset()
+            this.router.navigate(['/all-posts'])
+          })
+
       })
+    this.reloadPage()
+  }
+
+  reloadPage() {
+    setTimeout(()=>{
+
+      window.location.reload();
+    }, 50);
+    this.router.navigate(['/all-posts'])
   }
 
 }

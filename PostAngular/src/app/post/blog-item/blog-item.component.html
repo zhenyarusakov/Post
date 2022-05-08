@@ -4,7 +4,7 @@
   <div class="post-content">
     <h1 class="blog-title">{{post.shortString}}</h1>
     <div>
-      <div class="post-info">{{post.dateTime}}</div>
+      <div class="post-info">{{post.dateTime| date}}</div>
       <div class="post-info">|</div>
       <div class="post-info">|</div>
       <a [routerLink]="['/categories']" [queryParams]="{category: post.category}" class="post-info link">{{post.category}}</a>

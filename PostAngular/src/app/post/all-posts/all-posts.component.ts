@@ -13,12 +13,14 @@ export class AllPostsComponent implements OnInit {
   public posts: Post[] = []
   public post!: Post
 
+  public role = localStorage.getItem('role')
+
   constructor(private activateRoute: ActivatedRoute, private router: Router, private service: PostService) {
   }
 
   ngOnInit(): void {
     this.getPosts()
-    this.deletePost(this.post.id)
+    console.log('role', this.role)
   }
 
   getPosts() {

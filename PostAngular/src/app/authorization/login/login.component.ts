@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthorizationService} from "../../services/authorization.service";
-import {Login} from "../../data/Login";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -10,7 +10,7 @@ import {Login} from "../../data/Login";
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private service: AuthorizationService) { }
+  constructor(private service: AuthorizationService, private router: Router) { }
 
   form!: FormGroup
 
@@ -31,9 +31,17 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.service.login(this.form.value)
-      .subscribe(data => {
-        this.service.saveToken(data['accessToken'])
-        console.log('data', data)
+      .subscribe(() => {
+        this.form.reset()
+        this.reloadPage()
       })
+  }
+
+  reloadPage() {
+    setTimeout(()=>{
+
+      window.location.reload();
+    }, 50);
+    this.router.navigate(['/all-posts'])
   }
 }

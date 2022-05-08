@@ -9,8 +9,8 @@ namespace PostWeb.Infrastructure.Interfaces.IdentityInterfaces
         Task<Response> RegisterAdminAsync(RegisterModel model);
         Task<AuthenticationResponse> LoginAsync(LoginModel model);
         Task AddToRoleAsync(AddToRoleModel addToRoleModel);
-        Task<AuthenticationResponse> RegenerateAccessTokenAsync(string? token);
-        Task RevokeToken(string? token);
+        Task<AuthenticationResponse> RegenerateAccessTokenAsync(string token);
+        Task RevokeToken(string token);
         void SetRefreshTokenCookie(string refreshToken);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace PostWeb.Core.IdentityModels
 {
@@ -15,5 +16,6 @@ namespace PostWeb.Core.IdentityModels
         public string RefreshToken { get; private set; }
 
         public DateTime RefreshTokenExpiration { get; init; }
+        public IList<string> Role { get; set; }
     }
 }
