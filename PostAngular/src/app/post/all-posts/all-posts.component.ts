@@ -20,7 +20,6 @@ export class AllPostsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPosts()
-    console.log('role', this.role)
   }
 
   getPosts() {

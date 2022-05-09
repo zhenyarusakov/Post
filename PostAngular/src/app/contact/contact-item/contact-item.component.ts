@@ -32,8 +32,6 @@ export class ContactItemComponent implements OnInit {
     this.formGroup()
   }
 
-
-
   formGroup(){
     this.form = new FormGroup({
       name: new FormControl(),

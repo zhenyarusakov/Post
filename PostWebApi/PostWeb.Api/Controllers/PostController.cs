@@ -17,7 +17,6 @@ namespace PostWeb.Api.Controllers
             _service = service;
         }
 
-        [Authorize(Roles = "Administrator")]
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetByIdPostAsync(int id, CancellationToken token = default)
         {
@@ -26,7 +25,6 @@ namespace PostWeb.Api.Controllers
             return Ok(result);
         }
         
-        [Authorize]
         [HttpGet]
         public async Task<IActionResult> GetAllPostsAsync([FromQuery] PostFilter filter, CancellationToken token)
         {
@@ -43,6 +41,7 @@ namespace PostWeb.Api.Controllers
             return Ok(result);
         }
 
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public async Task<IActionResult> CreatePostAsync(PostCreate create, CancellationToken token = default)
         {
@@ -51,6 +50,7 @@ namespace PostWeb.Api.Controllers
             return Ok(result);
         }
         
+        [Authorize(Roles = "Administrator")]
         [HttpPut]
         public async Task<IActionResult> UpdatePostAsync(int id, PostUpdate update, CancellationToken token = default)
         {
@@ -59,6 +59,7 @@ namespace PostWeb.Api.Controllers
             return Ok(result);
         }
         
+        [Authorize(Roles = "Administrator")]
         [HttpDelete]
         public async Task DeletePostAsync(int id, CancellationToken token = default)
         {

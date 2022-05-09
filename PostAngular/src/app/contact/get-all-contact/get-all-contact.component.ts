@@ -4,7 +4,7 @@ import {Contact} from "../../data/Contact";
 import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-get-all-create-contact',
+  selector: 'app-get-all-contact',
   templateUrl: './get-all-contact.component.html',
   styleUrls: ['./get-all-contact.component.css']
 })
@@ -22,6 +22,7 @@ export class GetAllContactComponent implements OnInit {
   getContact(){
     this.service.getContact()
       .subscribe(data => {
+        console.log(data)
         this.contacts = data
       })
   }

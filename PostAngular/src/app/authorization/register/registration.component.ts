@@ -6,13 +6,14 @@ import {Router} from "@angular/router";
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.css']
+  styleUrls: ['./registration.component.scss']
 })
 export class RegistrationComponent implements OnInit {
 
   constructor(private service: AuthorizationService, private router: Router) { }
 
   form!: FormGroup
+  token!: string | null
 
   ngOnInit(): void {
     this.formGroup()
@@ -28,7 +29,9 @@ export class RegistrationComponent implements OnInit {
         Validators.email
       ]),
       password: new FormControl('', [
-        Validators.required
+        Validators.required,
+        // Validators.pattern(/^[0-9]+[a-zA-Z]/),
+        // Validators.pattern("[A-Z]{1,2}[0-9][0-9A-Z]?\s?[0-9][A-Z]{2}")
       ])
     })
   }
@@ -38,6 +41,7 @@ export class RegistrationComponent implements OnInit {
       .subscribe((data) => {
         this.service.login(this.form.value)
           .subscribe(() => {
+            this.token = localStorage.getItem('token')
             this.form.reset()
             this.router.navigate(['/all-posts'])
           })

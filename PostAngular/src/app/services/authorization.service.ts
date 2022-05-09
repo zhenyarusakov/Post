@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+import {catchError, Observable, throwError} from "rxjs";
 import {Registration} from "../data/Registration";
 import {Login} from "../data/Login";
 import {TokenResponse} from "../data/TokenResponse";
@@ -13,6 +13,8 @@ export class AuthorizationService {
 
   constructor(private http: HttpClient) {
   }
+
+  public role = localStorage.getItem('role')
 
   get token(): string {
     let date = localStorage.getItem('refreshTokenExpiration')!.toString()

@@ -9,6 +9,10 @@
       <a routerLinkActive="w--current" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/']" class="nav-link">home</a>
       <a routerLinkActive="w--current" [routerLink]="['/about']" class="nav-link">about</a>
       <a routerLinkActive="w--current" [routerLink]="['/create-contact']" class="nav-link">contact</a>
+      <span *ngIf="role === 'Administrator'">
+        <a routerLinkActive="w--current" [routerLink]="['/all-contact']" class="nav-link">All Contact</a>
+        <a routerLinkActive="w--current" [routerLink]="['/post']" class="nav-link">Create New Post</a>
+      </span>
       <div class="grey-rule w-hidden-small w-hidden-tiny"></div>
     </nav>
     <div class="social-link-group">

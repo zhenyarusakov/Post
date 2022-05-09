@@ -11,19 +11,46 @@
             <div>
               <label>Login</label>
               <input type="text" placeholder="login" class="text-field w-input" formControlName="userName">
+              <div class="validation">
+                <small *ngIf="form.hasError('Поле Login неможет быть пустым', form.value.userName)">
+                  Поле Login неможет быть пустым
+                </small>
+                <small>
+                  Введите корректный Login
+                </small>
+                <small>
+                  Такой пользователь уже существует
+                </small>
+              </div>
             </div>
 
             <div>
               <label>Email</label>
               <input type="email" placeholder="email" class="text-field w-input" formControlName="email">
+              <div class="validation">
+                <small>
+                  Поле Email неможет быть пустым
+                </small>
+                <small>
+                  Введите корректный Email
+                </small>
+              </div>
             </div>
 
             <div>
               <label>Password</label>
               <input type="text" placeholder="password" class="text-field w-input" formControlName="password">
+              <div class="validation">
+                <small>
+                  Поле Password неможет быть пустым
+                </small>
+                <small>
+                  Введите корректный Password
+                </small>
+              </div>
             </div>
 
-            <button type="submit" class="button w-button" [disabled]="form.invalid">Registration</button>
+            <button type="submit" class="button" [disabled]="form.invalid">Registration</button>
           </form>
         </div>
       </div>

@@ -12,7 +12,8 @@ export class AppComponent {
   }
 
   token = localStorage.getItem('accessToken')
-  
+  role = localStorage.getItem('role')
+
   logOff() {
     this.service.logout()
     this.reloadPage()
