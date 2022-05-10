@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Post} from "../data/Post";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {map, Observable} from "rxjs";
 import {Params} from "@angular/router";
 
 @Injectable({

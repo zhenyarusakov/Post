@@ -11,6 +11,7 @@ import {BrowserModule} from "@angular/platform-browser";
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AppRoutingModule} from "../../app-routing.module";
+import {QuillModule} from "ngx-quill";
 
 
 
@@ -30,7 +31,8 @@ import {AppRoutingModule} from "../../app-routing.module";
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    CommonModule
+    CommonModule,
+    QuillModule.forRoot()
   ]
 })
 export class PostModule { }

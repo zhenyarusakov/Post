@@ -12,10 +12,12 @@
             <h1 class="blog-title">{{p.shortString}}</h1>
           </a>
           <div class="post-summary-wrapper">
-            <p class="post-summary">{{p.longString}}</p>
-            <a [routerLink]="['/all-posts', p.id]" class="read-more-link">
-              Read more...
-            </a>
+            <div class="post-summary-wrapper">
+              <p class="post-summary">{{p.middleString}}</p>
+              <a [routerLink]="['/all-posts', p.id]" class="read-more-link">
+                Read more...
+              </a>
+            </div>
           </div>
           <div class="post-info-wrapper">
             <div class="post-info">{{p.dateTime| date}}</div>

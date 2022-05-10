@@ -26,6 +26,10 @@ export class UpdatePostComponent implements OnInit {
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(100)]),
+      middleString: new FormControl('', [
+        Validators.required,
+        Validators.minLength(6),
+        Validators.maxLength(1000)]),
       longString: new FormControl('', [
         Validators.required,
         Validators.minLength(6),

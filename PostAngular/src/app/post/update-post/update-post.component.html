@@ -18,9 +18,13 @@
           </div>
 
           <div>
+            <label>Middle String</label>
+            <input type="text" placeholder="Short String" class="text-field w-input" formControlName="middleString">
+          </div>
+
+          <div>
             <label>Long String</label>
-            <textarea type="text" placeholder="Long String"  formControlName="longString"
-                      class="text-field w-input" style="height: 150px"></textarea>
+            <quill-editor formControlName="longString"></quill-editor>
           </div>
 
           <div>
