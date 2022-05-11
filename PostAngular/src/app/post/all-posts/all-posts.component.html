@@ -3,9 +3,10 @@
   <div role="list" class="w-dyn-items" *ngFor="let p of posts">
     <div role="listitem" class="w-dyn-item">
       <div class="post-wrapper" style="opacity: 1; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">
-        <a [routerLink]="['/all-posts', p.id]"
-           style="background-image:url(&quot;{{p.img}}&quot;)"
-           class="blog-image w-inline-block"></a>
+<!--        <a [routerLink]="['/all-posts', p.id]"-->
+<!--           style="background-image:url(&quot;{{p.img}}&quot;)"-->
+<!--           class="blog-image w-inline-block"></a>-->
+        <img src="data:image/jpeg;base64,{{p.img}}"/>
         <div class="post-content">
           <a [routerLink]="['/all-posts', p.id]"
             class="blog-title-link w-inline-block">

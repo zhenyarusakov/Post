@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
   getFirstFivePosts() {
     this.service.getFirstFivePosts()
       .subscribe(data => {
-        this.posts = data.reverse()
+        this.posts = data.reverse().reverse()
       })
   }
 

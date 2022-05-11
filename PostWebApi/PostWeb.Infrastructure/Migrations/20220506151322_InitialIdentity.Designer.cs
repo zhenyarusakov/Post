@@ -285,10 +285,13 @@ namespace PostWeb.Infrastructure.Migrations
                     b.Property<DateTime>("DateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Img")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<byte[]>("Img")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("LongString")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MiddleString")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ShortString")

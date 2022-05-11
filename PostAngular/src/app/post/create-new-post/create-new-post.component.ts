@@ -11,6 +11,9 @@ import {Post} from "../../data/Post";
 export class CreateNewPostComponent implements OnInit {
 
   public posts: Post[] = []
+  public selectFile = null
+
+
 
   constructor(private service: PostService) { }
 
@@ -24,18 +27,15 @@ export class CreateNewPostComponent implements OnInit {
         Validators.minLength(6),
         Validators.maxLength(100)]),
       middleString: new  FormControl('', [
-        Validators.required,
-        Validators.minLength(6),
-        Validators.maxLength(1000)]),
+        Validators.required]),
       longString: new  FormControl('', [
-        Validators.required,
-        Validators.minLength(6),
-        Validators.maxLength(1000)]),
+        Validators.required]),
       category: new  FormControl('', [
         Validators.required,
         Validators.minLength(1),
         Validators.maxLength(100)]),
     })
+
   }
 
   submit() {
@@ -47,4 +47,5 @@ export class CreateNewPostComponent implements OnInit {
 
     this.form.reset()
   }
+
 }

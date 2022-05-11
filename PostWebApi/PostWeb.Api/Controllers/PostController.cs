@@ -1,7 +1,10 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using PostWeb.Api.MVCModels;
 using PostWeb.Core.Common;
 using PostWeb.Core.DTO.PostDto;
 using PostWeb.Infrastructure.Interfaces;
@@ -12,9 +15,12 @@ namespace PostWeb.Api.Controllers
     {
         private readonly IPostService _service;
 
-        public PostApiController(IPostService service)
+        private readonly IMapper _mapper;
+
+        public PostApiController(IPostService service, IMapper mapper)
         {
             _service = service;
+            _mapper = mapper;
         }
 
         [HttpGet("{id:int}")]
@@ -43,18 +49,20 @@ namespace PostWeb.Api.Controllers
 
         [Authorize(Roles = "Administrator")]
         [HttpPost]
-        public async Task<IActionResult> CreatePostAsync(PostCreate create, CancellationToken token = default)
+        public async Task<IActionResult> CreatePostAsync([FromForm] CreatePostRequestMVC payload, CancellationToken token = default)
         {
-            var result = await _service.CreatePostAsync(create, token);
+            var request = _mapper.Map<CreatePostRequest>(payload);
+            
+            var result = await _service.CreatePostAsync(request, token);
 
             return Ok(result);
         }
         
         [Authorize(Roles = "Administrator")]
         [HttpPut]
-        public async Task<IActionResult> UpdatePostAsync(int id, PostUpdate update, CancellationToken token = default)
+        public async Task<IActionResult> UpdatePostAsync(int id, UpdatePostRequest request, CancellationToken token = default)
         {
-            var result = await _service.UpdatePostAsync(id, update, token);
+            var result = await _service.UpdatePostAsync(id, request, token);
 
             return Ok(result);
         }

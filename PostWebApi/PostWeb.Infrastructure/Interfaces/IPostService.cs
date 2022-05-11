@@ -7,8 +7,8 @@ namespace PostWeb.Infrastructure.Interfaces
 {
     public interface IPostService
     {
-        Task<int> CreatePostAsync(PostCreate create, CancellationToken token = default);
-        Task<int> UpdatePostAsync(int id, PostUpdate update, CancellationToken token = default);
+        Task<int> CreatePostAsync(CreatePostRequest create, CancellationToken token = default);
+        Task<int> UpdatePostAsync(int id, UpdatePostRequest request, CancellationToken token = default);
         Task<PostDto> GetByIdPostAsync(int id, CancellationToken token = default);
         Task<PostDto[]> GetAllPostsAsync(PostFilter filter, CancellationToken token = default);
         Task<PostDto[]> GetFirstFivePostsAsync(CancellationToken token = default);

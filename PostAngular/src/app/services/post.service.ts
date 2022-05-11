@@ -37,7 +37,11 @@ export class PostService {
 
   addNewPost(newPost: Post): Observable<Post> {
     let data = {
-      img: newPost.img, longString: newPost.longString, shortString: newPost.shortString, category: newPost.category
+      img: newPost.img,
+      longString: newPost.longString,
+      middleString:  newPost.middleString,
+      shortString: newPost.shortString,
+      category: newPost.category
     }
 
     return this.http.post<Post>(`https://localhost:5001/api/PostApi`, data, {headers: this.getHeaders()})
@@ -48,6 +52,7 @@ export class PostService {
       id: id,
       img: updatePost.img,
       longString: updatePost.longString,
+      middleString:  updatePost.middleString,
       shortString: updatePost.shortString,
       category: updatePost.category
     }

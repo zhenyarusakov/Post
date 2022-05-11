@@ -70,8 +70,9 @@ namespace PostWeb.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Img = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Img = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
                     LongString = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MiddleString = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ShortString = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Category = table.Column<string>(type: "nvarchar(max)", nullable: true)

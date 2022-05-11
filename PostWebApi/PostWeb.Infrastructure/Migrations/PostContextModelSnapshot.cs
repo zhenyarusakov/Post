@@ -177,7 +177,7 @@ namespace PostWeb.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Contacts");
+                    b.ToTable("Contacts", (string)null);
                 });
 
             modelBuilder.Entity("PostWeb.Core.IdentityModels.ApplicationUser", b =>
@@ -266,7 +266,7 @@ namespace PostWeb.Infrastructure.Migrations
 
                     b.HasIndex("ApplicationUserId");
 
-                    b.ToTable("TokenModel");
+                    b.ToTable("TokenModel", (string)null);
                 });
 
             modelBuilder.Entity("PostWeb.Core.Post", b =>
@@ -283,8 +283,8 @@ namespace PostWeb.Infrastructure.Migrations
                     b.Property<DateTime>("DateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Img")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<byte[]>("Img")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("LongString")
                         .HasColumnType("nvarchar(max)");
@@ -297,7 +297,7 @@ namespace PostWeb.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Posts");
+                    b.ToTable("Posts", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

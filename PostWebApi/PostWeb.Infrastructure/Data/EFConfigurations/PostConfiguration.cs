@@ -15,8 +15,11 @@ namespace PostWeb.Infrastructure.Data.EFConfigurations
             builder.Property(x => x.Img)
                 .IsRequired();
             
-            builder.Property(x => x.LongString)
+            builder.Property(x => x.MiddleString)
                 .HasMaxLength(1000)
+                .IsRequired();
+            
+            builder.Property(x => x.LongString)
                 .IsRequired();
             
             builder.Property(x => x.ShortString)

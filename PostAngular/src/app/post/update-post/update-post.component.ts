@@ -27,13 +27,9 @@ export class UpdatePostComponent implements OnInit {
         Validators.minLength(6),
         Validators.maxLength(100)]),
       middleString: new FormControl('', [
-        Validators.required,
-        Validators.minLength(6),
-        Validators.maxLength(1000)]),
+        Validators.required]),
       longString: new FormControl('', [
-        Validators.required,
-        Validators.minLength(6),
-        Validators.maxLength(1000)]),
+        Validators.required]),
       category: new FormControl('', [
         Validators.required,
         Validators.minLength(1),
@@ -47,6 +43,7 @@ export class UpdatePostComponent implements OnInit {
           this.form.setValue({
             img: data.img,
             shortString: data.shortString,
+            middleString: data.middleString,
             longString: data.longString,
             category: data.category
           })

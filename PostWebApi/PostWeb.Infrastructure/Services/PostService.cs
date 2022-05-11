@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using PostWeb.Core;
 using PostWeb.Core.Common;
@@ -53,15 +54,17 @@ namespace PostWeb.Infrastructure.Services
 
         public async Task<PostDto[]> GetFirstFivePostsAsync(CancellationToken token = default)
         {
-            var posts = await _context.Posts.Take(5).ToArrayAsync(token);
+            var posts = await _context.Posts
+                .Take(5)
+                .ToListAsync(token);
 
             return _mapper.Map<PostDto[]>(posts);
         }
 
-        public async Task<int> CreatePostAsync(PostCreate create, CancellationToken token = default)
+        public async Task<int> CreatePostAsync(CreatePostRequest request, CancellationToken token = default)
         {
-            Post post = _mapper.Map<Post>(create);
-            
+            Post post = _mapper.Map<Post>(request);
+
             post.DateTime = DateTime.Now;
 
             _context.Posts.Add(post);
@@ -71,7 +74,7 @@ namespace PostWeb.Infrastructure.Services
             return post.Id;
         }
 
-        public async Task<int> UpdatePostAsync(int id, PostUpdate update, CancellationToken token = default)
+        public async Task<int> UpdatePostAsync(int id, UpdatePostRequest request, CancellationToken token = default)
         {
             var updatePost = await _context.Posts
                 .AsNoTracking()
@@ -82,7 +85,7 @@ namespace PostWeb.Infrastructure.Services
                 throw new ArgumentNullException("Post not found");
             }
 
-            _mapper.Map(update, updatePost);
+            _mapper.Map(request, updatePost);
             
             updatePost.DateTime = DateTime.UtcNow;
 

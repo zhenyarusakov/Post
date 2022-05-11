@@ -25,6 +25,7 @@ export class AllPostsComponent implements OnInit {
   getPosts() {
     this.service.getAllPosts()
       .subscribe(data => {
+        console.log(data)
         this.posts = data.reverse()
       })
   }
